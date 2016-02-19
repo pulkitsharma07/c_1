@@ -4,19 +4,19 @@ using namespace std;
 
 double chances()
 {
-    return rand()/RAND_MAX;
+    return rand()/(double)RAND_MAX;
 }
 
-class Server
+struct server
 {
     double success_rate;
 
-    Server(int rate):success_rate(rate)
+    server(double rate)
     {
-
+        success_rate = rate;
     }
 
-    Server()
+    server()
     {
         success_rate = chances();
     }
@@ -34,9 +34,16 @@ class Server
     }
 };
 
+
 int main()
 {
+    server a(0.3);
 
 
+    while(1)
+    {
+        cout<<a.request()<<endl;
+        system("PAUSE");
+    }
     return 0;
 }
